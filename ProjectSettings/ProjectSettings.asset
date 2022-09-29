@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 23
+<<<<<<< HEAD
   productGUID: e9c17dc188cb1b54eacb4e373ee264bd
+=======
+  productGUID: 30bd10afef19a054dabbe644b87f8ccd
+>>>>>>> master
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +17,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: WitchCraft
+=======
+  productName: Witchcraft
+>>>>>>> master
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -643,7 +651,17 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
+<<<<<<< HEAD
   cloudServicesEnabled: {}
+=======
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
+>>>>>>> master
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -657,11 +675,19 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
+<<<<<<< HEAD
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: 
   organizationId: 
+=======
+  cloudProjectId: 0f3c99f3-032b-4010-a468-088a19b2b86b
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: Witchcraft
+  organizationId: haliwhang4444
+>>>>>>> master
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
