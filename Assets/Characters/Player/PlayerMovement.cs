@@ -2,50 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
-	public CharacterController2D controller;
-
-	public float runSpeed = 40f;
-    public float dashSpeed = 2;
+public class PlayerMovement : MonoBehaviour
+{
+    public CharacterController2D controller;
+    private PlayerControls playerControls;
+    private PlayerControls.PlayerActions playerMap;
+    public float runSpeed = 40f;
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
-    bool dash = false;
-	
-	// Update is called once per frame
-	void Update () {
+    
+    void Awake (){
+        playerControls = new PlayerControls();
+        playerMap = playerControls.Player;
+    }
 
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+    void OnEnable(){
+        playerMap.Enable();
+        playerMap.Jump.performed += (context) => {
+            jump = true;
+        };
+        playerMap.Crouch.performed += (context) => {
+            if (controller.m_Grounded) {
+                crouch = true;
+            }
+        };
+        playerMap.Crouch.canceled += (context) => {
+            crouch = false;
+        };
 
-		if (Input.GetButtonDown("Jump"))
-		{
-			jump = true;
-		}
+    }
 
-		if (Input.GetButtonDown("Crouch"))
-		{
-			crouch = true;
-		} 
-        else if (Input.GetButtonUp("Crouch"))
-		{
-			crouch = false;
-		}
+    void OnDisable(){
+        playerControls.Player.Disable();
+    }
 
-        if (Input.GetButtonDown("Dash"))
-		{
-			dash = true;
-		} 
-	}
-
-	void FixedUpdate ()
-	{
+    // Update is called once per frame
+    void FixedUpdate (){
 		// Move our character
+        horizontalMove = playerMap.Move.ReadValue<Vector2>().x * runSpeed;
 		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        if (dash) {
-            controller.Move(horizontalMove * dashSpeed * Time.fixedDeltaTime, false, false);
-        }
-        dash = false;
 		jump = false;
 	}
 }

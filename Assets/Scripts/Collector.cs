@@ -12,7 +12,7 @@ public class Collector : MonoBehaviour
         {
             Item item = collision.GetComponent<Item>();
             Destroy(collision.gameObject);
-            inv.updateInv(item);
+            inv.collectInv(item);
         }
     }
 }
