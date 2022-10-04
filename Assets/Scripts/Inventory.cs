@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    Dictionary<string, int> inv = new Dictionary<string, int>();
+    public Dictionary<string, int> inv = new Dictionary<string, int>();
     public int getItemCnt(string item){
         if (inv.ContainsKey(item)){
             return inv[item];
