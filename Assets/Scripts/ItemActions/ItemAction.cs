@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ItemAction : MonoBehaviour {
-    protected CharacterController2D controller;
     public UDictionary<string, int> costs;
 
+    protected CharacterController2D controller;
     void Awake() {
         controller = GetComponent<CharacterController2D>();
     }
