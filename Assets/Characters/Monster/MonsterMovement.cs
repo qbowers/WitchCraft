@@ -5,9 +5,10 @@ using UnityEngine;
 public class MonsterMovement : MonoBehaviour
 {
     public float speed = 1.0f;
+    public Vector3 initialPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
     void Awake() {
-        transform.position = new Vector3(-13.0f, 0.0f, 0.0f);
+        transform.position = initialPosition;
     }
 
     void FixedUpdate() {
