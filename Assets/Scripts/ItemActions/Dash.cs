@@ -11,6 +11,6 @@ public class Dash : ItemAction {
         } else {
             direction = -1f;
         }
-        controller.Move(dashSpeed * direction, false);
+        controller.Move(dashSpeed * direction);
     }
 }
