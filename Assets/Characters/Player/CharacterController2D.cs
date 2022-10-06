@@ -3,88 +3,95 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour {
 	// Amount of force added when the player jumps.
-	[SerializeField] public float m_JumpForce = 400f;
+	[SerializeField] public float jumpForce = 400f;
 
     [SerializeField] public float runSpeed = 0f;
 
 	// How much to smooth out the movement
-	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
+	[SerializeField] [Range(0, .3f)] float movementSmoothing = .05f;
 
 	// Whether or not a player can steer while jumping;
-	[SerializeField] private bool m_AirControl = false;
+	[SerializeField] bool airControl = false;
 
 	// A mask determining what is ground to the character
-	[SerializeField] private LayerMask m_WhatIsGround;
+	[SerializeField] LayerMask whatIsGround;
 
 	// A position marking where to check if the player is grounded.
-	[SerializeField] private Transform m_GroundCheck;
+	[SerializeField] Transform groundCheck;
 
 
 
 	// Radius of the overlap circle to determine if grounded
-	const float k_GroundedRadius = .2f;
+	const float groundedRadius = .2f;
 	// Whether or not the player is grounded.
-	public bool m_Grounded;
+	public bool grounded;
 
-	private Rigidbody2D m_Rigidbody2D;
-	private Vector3 m_Velocity = Vector3.zero;
+	// new indicates we override the given rigidbody2D
+	private new Rigidbody2D rigidbody2D;
+	// private Vector3 velocity = Vector3.zero;
 
 	// For determining which way the player is currently facing.
-	public bool m_FacingRight = true;
+	// public bool m_FacingRight = true;
+	public Vector3 directionScaleVector;
+	public Vector3 leftScaleVector = new Vector3(-1,1,1);
+	public Vector3 rightScaleVector = new Vector3(1,1,1);
 
 	
-	private void Start() {
-		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+	void Start() {
+		rigidbody2D = GetComponent<Rigidbody2D>();
 	}
 
-	private void FixedUpdate() {
-		m_Grounded = false;
-
+	bool CheckGrounded() {
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
 		for (int i = 0; i < colliders.Length; i++) {
 			if (colliders[i].gameObject != gameObject) {
-				m_Grounded = true;
+				return true;
 			}
 		}
+
+		return false;
+	}
+
+	void FixedUpdate() {
+		grounded = CheckGrounded();
+		Move();
 	}
 
 
-	public void Move(float move) {
+	Vector2 targetVelocity = Vector2.zero;
+	public void MoveInput(float move) {
+		targetVelocity = new Vector2(move * runSpeed * Time.fixedDeltaTime, rigidbody2D.velocity.y);
+
+		if (Mathf.Abs(move) > 0) FaceRight(move > 0);
+	}
+	public void Move() {
 		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl) {
-
-			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
-			if (move > 0 && !m_FacingRight) {
-				// If the input is moving the player right and the player is facing left...
-				Flip();
-			} else if (move < 0 && m_FacingRight) {
-				// Otherwise if the input is moving the player left and the player is facing right...
-				Flip();
-			}
+		if (grounded || airControl) {
+			rigidbody2D.velocity = Vector3.Lerp(rigidbody2D.velocity, targetVelocity, Time.fixedDeltaTime/movementSmoothing);
 		}
 	}
 
-    public void Jump(float jumpForce, bool canJump) {
-        if (m_Grounded || canJump) {
+    public void Jump(bool canJump) {
+        if (grounded || canJump) {
 			// Add a vertical force to the player.
-			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+			grounded = false;
+			ApplyForce(new Vector2(0f, jumpForce));
 		}
     }
 
-	private void Flip()	{
-		// Switch the way the player is labelled as facing.
-		m_FacingRight = !m_FacingRight;
+	public void ApplyForce(Vector2 force) {
+		rigidbody2D.AddForce(Vector3.Scale(force, directionScaleVector));
+	}
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+
+	void FaceRight(bool right) {
+		float factor = right ? 1:-1;
+		Vector3 scale =  transform.localScale;
+		scale.x = Mathf.Abs(scale.x) * factor;
+
+		transform.localScale = scale;
+		directionScaleVector = right ? rightScaleVector:leftScaleVector;
 	}
 }

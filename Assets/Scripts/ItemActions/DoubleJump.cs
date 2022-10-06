@@ -5,6 +5,6 @@ using UnityEngine;
 public class DoubleJump : ItemAction {
     public float jumpForce;
     public override void perform(){
-        controller.Jump(jumpForce, true);
+        controller.ApplyForce(new Vector2(0f,jumpForce));
     }
 }

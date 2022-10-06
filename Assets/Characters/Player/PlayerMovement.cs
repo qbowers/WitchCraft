@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
-    private PlayerControls playerControls;
     private PlayerControls.PlayerActions playerMap;
-    private float horizontalMove = 0f;
-    
-    void Awake (){
-        playerControls = new PlayerControls();
-        playerMap = playerControls.Player;
+
+    void Awake () {
+        playerMap = new PlayerControls().Player;
     }
 
-    void OnEnable(){
+    void OnEnable() {
         playerMap.Enable();
         playerMap.Jump.performed += (context) => {
-            controller.Jump(controller.m_JumpForce, false);
+            controller.Jump(false);
         };
     }
 
-    void OnDisable(){
-        playerControls.Player.Disable();
+    void OnDisable() {
+        playerMap.Disable();
     }
 
-    // Update is called once per frame
-    void FixedUpdate (){
-		// Move our character
-        horizontalMove = playerMap.Move.ReadValue<Vector2>().x * controller.runSpeed;
-		controller.Move(horizontalMove * Time.fixedDeltaTime);
+    void Update () {
+		// Tell our character how we want it to move
+		controller.MoveInput(playerMap.Move.ReadValue<Vector2>().x);
 	}
 }

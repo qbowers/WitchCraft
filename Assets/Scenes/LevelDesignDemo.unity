@@ -130,13 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3815714499491088948, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
+      propertyPath: runSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3815714499491088949, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815714499491088950, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3815714499491088952, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
       propertyPath: m_RootOrder
