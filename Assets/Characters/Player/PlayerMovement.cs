@@ -7,9 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     private PlayerControls playerControls;
     private PlayerControls.PlayerActions playerMap;
-    public float runSpeed = 40f;
-	float horizontalMove = 0f;
-	bool jump = false;
+    private float horizontalMove = 0f;
 	bool crouch = false;
     
     void Awake (){
@@ -20,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable(){
         playerMap.Enable();
         playerMap.Jump.performed += (context) => {
-            jump = true;
+            controller.jump(controller.m_JumpForce, false);
         };
         playerMap.Crouch.performed += (context) => {
             if (controller.m_Grounded) {
@@ -40,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate (){
 		// Move our character
-        horizontalMove = playerMap.Move.ReadValue<Vector2>().x * runSpeed;
-		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-		jump = false;
+        horizontalMove = playerMap.Move.ReadValue<Vector2>().x * controller.runSpeed;
+		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch);
 	}
 }
