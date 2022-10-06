@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 600
-  runSpeed: 30
+  runSpeed: 300
   movementSmoothing: 0.05
   airControl: 1
   whatIsGround:
@@ -243,7 +243,9 @@ MonoBehaviour:
     m_Bits: 17
   groundCheck: {fileID: 3815714499709424885}
   grounded: 0
-  m_FacingRight: 1
+  directionScaleVector: {x: 0, y: 0, z: 0}
+  leftScaleVector: {x: -1, y: 1, z: 1}
+  rightScaleVector: {x: 1, y: 1, z: 1}
 --- !u!114 &3815714499491088958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +334,7 @@ MonoBehaviour:
     keys:
     - red
     values: 01000000
-  dashSpeed: 300
+  dashSpeed: 3000
 --- !u!114 &114570433
 MonoBehaviour:
   m_ObjectHideFlags: 0

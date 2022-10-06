@@ -5,7 +5,7 @@ public class CharacterController2D : MonoBehaviour {
 	// Amount of force added when the player jumps.
 	[SerializeField] public float jumpForce = 400f;
 
-    [SerializeField] public float runSpeed = 0f;
+    [SerializeField] public float runSpeed = 300f;
 
 	// How much to smooth out the movement
 	[SerializeField] [Range(0, .3f)] float movementSmoothing = .05f;
