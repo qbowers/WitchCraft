@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/LevelDesignDemo.unity
+    guid: a5a87005de5075b4ebf003e7642c6164
   m_configObjects: {}
