@@ -17,15 +17,12 @@ using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 [Serializable]
-public class UDictionary
-{
-    public class SplitAttribute : PropertyAttribute
-    {
+public class UDictionary {
+    public class SplitAttribute : PropertyAttribute {
         public float Key { get; protected set; }
         public float Value { get; protected set; }
 
-        public SplitAttribute(float key, float value)
-        {
+        public SplitAttribute(float key, float value) {
             this.Key = key;
             this.Value = value;
         }
@@ -34,12 +31,10 @@ public class UDictionary
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(SplitAttribute), true)]
     [CustomPropertyDrawer(typeof(UDictionary), true)]
-    public class Drawer : PropertyDrawer
-    {
+    public class Drawer : PropertyDrawer {
         SerializedProperty property;
 
-        public bool IsExpanded
-        {
+        public bool IsExpanded {
             get => property.isExpanded;
             set => property.isExpanded = value;
         }
@@ -67,8 +62,7 @@ public class UDictionary
         public const float TopPadding = 5f;
         public const float BottomPadding = 5f;
 
-        void Init(SerializedProperty value)
-        {
+        void Init(SerializedProperty value) {
             if (SerializedProperty.EqualContents(value, property)) return;
 
             property = value;
@@ -92,22 +86,21 @@ public class UDictionary
             list.onReorderCallbackWithDetails += Reorder;
         }
 
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        {
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
             Init(property);
 
             var height = TopPadding + BottomPadding;
 
-            if (IsAligned)
+            if (IsAligned) {
                 height += IsExpanded ? list.GetHeight() : list.headerHeight;
-            else
+            } else {
                 height += SingleLineHeight;
+            }
 
             return height;
         }
 
-        public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label)
-        {
+        public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label) {
             label.text = $" {label.text}";
 
             this.label = label;
@@ -119,28 +112,26 @@ public class UDictionary
             rect.y += TopPadding;
             rect.height -= TopPadding + BottomPadding;
 
-            if (IsAligned == false)
-            {
+            if (IsAligned == false) {
                 DrawAlignmentWarning(ref rect);
                 return;
             }
 
-            if (IsExpanded)
+            if (IsExpanded) {
                 DrawList(ref rect);
-            else
+            } else {
                 DrawCompleteHeader(ref rect);
+            }
         }
 
-        void DrawList(ref Rect rect)
-        {
+        void DrawList(ref Rect rect) {
             EditorGUIUtility.labelWidth = 80f;
             EditorGUIUtility.fieldWidth = 80f;
 
             list.DoList(rect);
         }
 
-        void DrawAlignmentWarning(ref Rect rect)
-        {
+        void DrawAlignmentWarning(ref Rect rect) {
             var width = 80f;
             var spacing = 5f;
 

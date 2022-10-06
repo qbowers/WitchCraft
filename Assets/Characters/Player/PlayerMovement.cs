@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable(){
         playerMap.Enable();
         playerMap.Jump.performed += (context) => {
-            controller.jump(controller.m_JumpForce, false);
+            controller.Jump(controller.m_JumpForce, false);
         };
         playerMap.Crouch.performed += (context) => {
             if (controller.m_Grounded) {
