@@ -2,46 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
-    private PlayerControls playerControls;
     private PlayerControls.PlayerActions playerMap;
-    public float runSpeed = 40f;
-	float horizontalMove = 0f;
-	bool jump = false;
-	bool crouch = false;
-    
-    void Awake (){
-        playerControls = new PlayerControls();
-        playerMap = playerControls.Player;
+
+    void Awake () {
+        playerMap = new PlayerControls().Player;
     }
 
-    void OnEnable(){
+    void OnEnable() {
         playerMap.Enable();
         playerMap.Jump.performed += (context) => {
-            jump = true;
+            controller.Jump(false);
         };
-        playerMap.Crouch.performed += (context) => {
-            if (controller.m_Grounded) {
-                crouch = true;
-            }
-        };
-        playerMap.Crouch.canceled += (context) => {
-            crouch = false;
-        };
-
     }
 
-    void OnDisable(){
-        playerControls.Player.Disable();
+    void OnDisable() {
+        playerMap.Disable();
     }
 
-    // Update is called once per frame
-    void FixedUpdate (){
-		// Move our character
-        horizontalMove = playerMap.Move.ReadValue<Vector2>().x * runSpeed;
-		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-		jump = false;
+    void Update () {
+		// Tell our character how we want it to move
+		controller.MoveInput(playerMap.Move.ReadValue<Vector2>().x);
 	}
 }
