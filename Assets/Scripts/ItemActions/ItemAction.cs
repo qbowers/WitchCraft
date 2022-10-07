@@ -15,7 +15,7 @@ public abstract class ItemAction : MonoBehaviour {
             string costName = item.Key;
             int costCnt = item.Value;
             Debug.Log("Action Cost:" + costName + " " + costCnt);
-            if(!inv.canUse(costName, costCnt)){
+            if(!inv.enough(costName, costCnt)){
                 return false;
             }
         }
