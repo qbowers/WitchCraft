@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 600
   runSpeed: 300
-  movementSmoothing: 0.05
+  movementSmoothing: 0.1
   airControl: 1
   whatIsGround:
     serializedVersion: 2
