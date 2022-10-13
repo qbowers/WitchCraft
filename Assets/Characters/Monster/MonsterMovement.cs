@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Path : MonoBehaviour
+public class MonsterMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public float speed = 1.0f;
+    public Vector3 initialPosition = new Vector3(0.0f, 0.0f, 0.0f);
+
+    void Awake() {
+        transform.position = initialPosition;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void FixedUpdate() {
+        var playerPosition = GameObject.Find("Player").transform.position;
+
+        var step = speed * Time.deltaTime;
+
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
+
+
     }
 }
