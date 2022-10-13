@@ -234,13 +234,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439b7db0ea484c244a5a89be5329dffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 600
+  jumpForce: 1000
   runSpeed: 300
   movementSmoothing: 0.1
   airControl: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 17
+    m_Bits: 51
   groundCheck: {fileID: 3815714499709424885}
   grounded: 0
   directionScaleVector: {x: 0, y: 0, z: 0}
@@ -271,6 +271,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9107fa863c584f5438fbf88393017ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invUI:
+    keys:
+    - red
+    - blue
+    values:
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!114 &3815714499491088957
 MonoBehaviour:
   m_ObjectHideFlags: 0
