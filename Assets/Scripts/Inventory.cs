@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Inventory : MonoBehaviour {
     public Dictionary<string, int> inv = new Dictionary<string, int>();
+    public UDictionary<string, TextMeshProUGUI> invUI = new UDictionary<string, TextMeshProUGUI>();
+
     public int getItemCnt(string item) {
         if (inv.ContainsKey(item)) {
             return inv[item];
@@ -16,10 +19,11 @@ public class Inventory : MonoBehaviour {
             inv[item.id] = cnt + item.cnt;
             Debug.Log(inv[item.id]+ " " + item.id + " in inv");
             item.collected = true;
+            changeInvUI(item.id);
         } 
     }
 
-    public bool canUse(string costName, int costCnt) {
+    public bool enough(string costName, int costCnt) {
         if (costCnt == 0){
             return true;
         }
@@ -34,6 +38,14 @@ public class Inventory : MonoBehaviour {
             string costName = item.Key;
             int costCnt = item.Value;
             inv[costName] -= costCnt;
+            changeInvUI(costName);
+        }
+    }
+
+    public void changeInvUI(string id) {
+        if (invUI.ContainsKey(id)) {
+                //increase txt cnt
+                invUI[id].text = inv[id].ToString();
         }
     }
 }
