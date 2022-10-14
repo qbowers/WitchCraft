@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public CharacterController2D controller;
+    public CharacterJump jumpControls;
+    public CharacterMovement movementControls;
     private PlayerControls.PlayerActions playerMap;
 
     void Awake () {
@@ -12,9 +13,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnEnable() {
         playerMap.Enable();
-        playerMap.Jump.performed += (context) => {
-            controller.Jump(false);
-        };
+        playerMap.Jump.started += jumpControls.OnJumpAction;
+        playerMap.Jump.canceled += jumpControls.OnJumpAction;
     }
 
     void OnDisable() {
@@ -23,6 +23,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update () {
 		// Tell our character how we want it to move
-		controller.MoveInput(playerMap.Move.ReadValue<Vector2>().x);
+		movementControls.OnMovement(playerMap.Move);
 	}
 }
