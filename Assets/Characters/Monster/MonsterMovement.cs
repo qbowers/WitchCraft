@@ -18,8 +18,6 @@ public class MonsterMovement : MonoBehaviour
         var step = speed * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
-
-
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -27,7 +25,6 @@ public class MonsterMovement : MonoBehaviour
             return;
         }
 
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
+        CoreManager.instance.LoadMenu(Constants.GameOverMenuScene, LoadSceneMode.Single);
     }
 }

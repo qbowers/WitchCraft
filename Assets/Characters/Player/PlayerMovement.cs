@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start () {
         playerMap = CoreManager.instance.playerMap;
-        playerMap.Jump.performed += jumpControls.OnJumpAction;
+        playerMap.Jump.started += jumpControls.OnJumpAction;
+        playerMap.Jump.canceled += jumpControls.OnJumpAction;
     }
 
 
