@@ -161,6 +161,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Overarching",
+            "id": "5798cc2b-8605-4f09-a921-e71213f951c6",
+            "actions": [
+                {
+                    "name": "TogglePause",
+                    "type": "Button",
+                    "id": "88dff0e3-8471-40d1-be53-b955cd614745",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4fb58009-e761-43a1-af45-5886b5be8eec",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TogglePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

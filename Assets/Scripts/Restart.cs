@@ -7,13 +7,9 @@ public class Restart : MonoBehaviour {
     private PlayerControls playerControls;
     private PlayerControls.PlayerActions playerMap;
 
-    void Awake (){
-        playerControls = new PlayerControls();
-        playerMap = playerControls.Player;
-    }
-
-    void OnEnable(){
-        playerMap.Enable();
+    void Start () {
+        playerMap = CoreManager.instance.playerMap;
+    
         playerMap.Restart.performed += (context) => {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
