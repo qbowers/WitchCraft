@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: invUI.values.Array.data[1]
       value: 
       objectReference: {fileID: 1705777724}
+    - target: {fileID: 4637350640432022650, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
 --- !u!4 &53055996 stripped
@@ -678,7 +682,7 @@ GameObject:
   - component: {fileID: 759516812}
   - component: {fileID: 759516811}
   - component: {fileID: 759516813}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7612,7 +7616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958562935}
   - component: {fileID: 958562934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

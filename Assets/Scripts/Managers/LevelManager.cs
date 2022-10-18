@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void StartLevel() {
-        this.paused = false;
+        Play();
         // Find the player start pad in the world
         // TODO: consider using tags or labels or layers or something. IDK.
         // Transform startPad = GameObject.Find("StartPad").GetComponent<Transform>();
@@ -50,12 +50,14 @@ public class LevelManager : MonoBehaviour {
         CoreManager.instance.LoadMenu(Constants.PauseMenuScene);
         // poke scene_manager.menu_manager
     }
-
-    public void Resume() {
+    public void Play() {
         Debug.Log("UnPause!");
         this.paused = false;
         this.playerMap.Enable();
         Time.timeScale = 1;
+    }
+    public void Resume() {
+        Play();
         CoreManager.instance.UnloadMenu(Constants.PauseMenuScene);
         // enable movement input
     }
