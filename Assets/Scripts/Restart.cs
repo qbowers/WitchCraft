@@ -11,7 +11,8 @@ public class Restart : MonoBehaviour {
         playerMap = CoreManager.instance.playerMap;
     
         playerMap.Restart.performed += (context) => {
-            SceneManager.LoadScene("LevelDesignDemo", LoadSceneMode.Single);
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
         };
     }
 }
