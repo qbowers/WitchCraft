@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &471201274
 Transform:
   m_ObjectHideFlags: 0
@@ -445,10 +445,12 @@ PolygonCollider2D:
     - - {x: 17.134506, y: 18.257439}
       - {x: -42.345745, y: 18.339806}
       - {x: -42.301346, y: -9.631507}
-      - {x: -6.4629707, y: -9.298728}
-      - {x: -0.18986982, y: -9.463676}
-      - {x: 48.172398, y: -9.850687}
-      - {x: 48.519318, y: 18.655268}
+      - {x: -45.28197, y: -30.864841}
+      - {x: -34.44193, y: -34.581852}
+      - {x: 32.067825, y: -31.986143}
+      - {x: 34.217854, y: -9.850687}
+      - {x: 24.447275, y: 9.191353}
+      - {x: 16.550728, y: 15.864361}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +934,7 @@ GameObject:
   - component: {fileID: 759516812}
   - component: {fileID: 759516811}
   - component: {fileID: 759516813}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13462,7 +13464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958562935}
   - component: {fileID: 958562934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

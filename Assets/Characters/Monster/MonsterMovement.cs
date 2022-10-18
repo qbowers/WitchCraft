@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonsterMovement : MonoBehaviour
 {
@@ -19,5 +20,14 @@ public class MonsterMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
 
 
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.name != "Player") {
+            return;
+        }
+
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
     }
 }
