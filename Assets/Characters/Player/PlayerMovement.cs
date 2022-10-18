@@ -7,19 +7,12 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterMovement movementControls;
     private PlayerControls.PlayerActions playerMap;
 
-    void Awake () {
-        playerMap = new PlayerControls().Player;
+    void Start () {
+        playerMap = CoreManager.instance.playerMap;
+        playerMap.Jump.performed += jumpControls.OnJumpAction;
     }
 
-    void OnEnable() {
-        playerMap.Enable();
-        playerMap.Jump.started += jumpControls.OnJumpAction;
-        playerMap.Jump.canceled += jumpControls.OnJumpAction;
-    }
 
-    void OnDisable() {
-        playerMap.Disable();
-    }
 
     void Update () {
 		// Tell our character how we want it to move

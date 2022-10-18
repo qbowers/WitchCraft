@@ -11,14 +11,10 @@ public class ItemActionsController : MonoBehaviour {
     public Inventory inv;
     public ItemAction[] actions;
 
-    void Awake() {
-        playerControls = new PlayerControls();
+    void Start() {
+        playerControls = CoreManager.instance.playerControls;
         playerMap = playerControls.Player;
-    }
-
-    // Update is called once per frame
-    void OnEnable() {
-        playerMap.Enable();
+        
         for (int i = 0; i < actions.Length; i++) {
             ItemAction action = actions[i];
             InputAction playerMapAction = playerControls.FindAction(action.GetType().Name, false);
