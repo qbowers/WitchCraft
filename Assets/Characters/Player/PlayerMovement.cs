@@ -9,9 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start () {
         playerMap = CoreManager.instance.playerMap;
-        playerMap.Jump.performed += (context) => {
-            controller.Jump(false);
-        };
+        playerMap.Jump.performed += jumpControls.OnJumpAction;
     }
 
 
