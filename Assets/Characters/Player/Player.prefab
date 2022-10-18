@@ -205,13 +205,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   velocity: {x: 0, y: 0}
-  jumpHeight: 4
-  timeToJumpApex: 0.25
+  jumpHeight: 5
+  timeToJumpApex: 0.4
   upwardMovementMultiplier: 1
-  downwardMovementMultiplier: 2.5
+  downwardMovementMultiplier: 1.5
   maxAirJumps: 0
   variablejumpHeight: 1
-  jumpCutOff: 5.5
+  jumpCutOff: 2
   fallSpeedLimit: 15
   coyoteTime: 0.1
   jumpBuffer: 0.2
