@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class ItemAction : MonoBehaviour {
     public UDictionary<string, int> costs;
 
-    protected CharacterController2D controller;
+    protected CharacterMovement controller;
     void Awake() {
-        controller = GetComponent<CharacterController2D>();
+        controller = GetComponent<CharacterMovement>();
     }
 
     public bool cost(Inventory inv) {

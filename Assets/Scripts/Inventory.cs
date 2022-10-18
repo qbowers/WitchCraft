@@ -37,8 +37,10 @@ public class Inventory : MonoBehaviour {
         foreach(var item in costs){
             string costName = item.Key;
             int costCnt = item.Value;
-            inv[costName] -= costCnt;
-            changeInvUI(costName);
+            if (costCnt != 0) {
+                inv[costName] -= costCnt;
+                changeInvUI(costName);
+            }
         }
     }
 
