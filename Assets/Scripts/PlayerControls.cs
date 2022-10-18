@@ -216,6 +216,34 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Overarching"",
+            ""id"": ""5798cc2b-8605-4f09-a921-e71213f951c6"",
+            ""actions"": [
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""88dff0e3-8471-40d1-be53-b955cd614745"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4fb58009-e761-43a1-af45-5886b5be8eec"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -228,6 +256,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_DoubleJump = m_Player.FindAction("DoubleJump", throwIfNotFound: true);
         m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
+        // Overarching
+        m_Overarching = asset.FindActionMap("Overarching", throwIfNotFound: true);
+        m_Overarching_TogglePause = m_Overarching.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +387,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Overarching
+    private readonly InputActionMap m_Overarching;
+    private IOverarchingActions m_OverarchingActionsCallbackInterface;
+    private readonly InputAction m_Overarching_TogglePause;
+    public struct OverarchingActions
+    {
+        private @PlayerControls m_Wrapper;
+        public OverarchingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TogglePause => m_Wrapper.m_Overarching_TogglePause;
+        public InputActionMap Get() { return m_Wrapper.m_Overarching; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OverarchingActions set) { return set.Get(); }
+        public void SetCallbacks(IOverarchingActions instance)
+        {
+            if (m_Wrapper.m_OverarchingActionsCallbackInterface != null)
+            {
+                @TogglePause.started -= m_Wrapper.m_OverarchingActionsCallbackInterface.OnTogglePause;
+                @TogglePause.performed -= m_Wrapper.m_OverarchingActionsCallbackInterface.OnTogglePause;
+                @TogglePause.canceled -= m_Wrapper.m_OverarchingActionsCallbackInterface.OnTogglePause;
+            }
+            m_Wrapper.m_OverarchingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TogglePause.started += instance.OnTogglePause;
+                @TogglePause.performed += instance.OnTogglePause;
+                @TogglePause.canceled += instance.OnTogglePause;
+            }
+        }
+    }
+    public OverarchingActions @Overarching => new OverarchingActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -364,5 +428,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnDoubleJump(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+    }
+    public interface IOverarchingActions
+    {
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }

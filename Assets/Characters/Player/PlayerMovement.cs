@@ -6,23 +6,21 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
     private PlayerControls.PlayerActions playerMap;
 
-    void Awake () {
-        playerMap = new PlayerControls().Player;
-    }
-
-    void OnEnable() {
-        playerMap.Enable();
+    void Start () {
+        playerMap = CoreManager.instance.playerMap;
         playerMap.Jump.performed += (context) => {
             controller.Jump(false);
         };
     }
 
-    void OnDisable() {
-        playerMap.Disable();
-    }
+
 
     void Update () {
 		// Tell our character how we want it to move
+        // Debug.Log(controller);
+        // Debug.Log(new PlayerControls().Player.Move);
+        // Debug.Log(playerMap.Move);
+
 		controller.MoveInput(playerMap.Move.ReadValue<Vector2>().x);
 	}
 }

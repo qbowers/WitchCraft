@@ -6,30 +6,29 @@ using UnityEngine.SceneManagement;
 public class CoreManager : MonoBehaviour {
     public static CoreManager instance = null;
 
-    LevelManager levelManager;
+    public LevelManager levelManager;
+
+    public PlayerControls playerControls;
+    public PlayerControls.OverarchingActions controlMap;
+    public PlayerControls.PlayerActions playerMap;
 
     public void Awake() {
         if (CoreManager.instance != null) {
             Destroy(gameObject);
         } else {
             DontDestroyOnLoad(gameObject);
+            CoreManager.instance = this;
 
             SpawnManagers();
 
-            CoreManager.instance = this;
-            // Debug.Log("I Survive!");
-            // SceneManager.LoadScene(Constants.StartMenuScene, LoadSceneMode.Additive);
-
-            // LoadLevel(Constants.LevelOne);
-            // SceneManager.LoadScene(Constants.LevelSystemsScene, LoadSceneMode.Single);
-            // SceneManager.LoadScene(Constants.LevelOne, LoadSceneMode.Single);
-            // SceneManager.SetActiveScene(SceneManager.GetSceneByName("Entry"));
-            // SceneManager.LoadScene(Constants.StartMenuScene);
         }
-
     }
 
     public void SpawnManagers() {
+        // Inputsystem
+        playerControls = new PlayerControls();
+        controlMap = playerControls.Overarching;
+        playerMap = playerControls.Player;
         // Find or create instances of all other required managers, DontDestroyOnLoad as required
         // e.g. audiomanager, levelmanager, etc.
 
@@ -50,11 +49,6 @@ public class CoreManager : MonoBehaviour {
 
     public string openLevel; 
     public void LoadLevel(string levelName) {
-        Debug.Log("HELLO");
-        // UnloadAllMenus();
-        // UnloadLevel();
-        // ExitGame();
-
         // if level systems don't exist, load them
         SceneManager.LoadScene(Constants.LevelSystemsScene, LoadSceneMode.Single);
         // additively load scene
@@ -83,6 +77,9 @@ public class CoreManager : MonoBehaviour {
 
     public void LoadMenu(string menuName, LoadSceneMode mode = LoadSceneMode.Additive) {
         SceneManager.LoadScene(menuName, mode);
+    }
+    public void UnloadMenu(string menuName) {
+        SceneManager.UnloadSceneAsync(menuName);
     }
 
     public void Pause() {
