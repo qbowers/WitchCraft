@@ -19,12 +19,4 @@ public class MonsterMovement : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
     }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.name != "Player") {
-            return;
-        }
-
-        CoreManager.instance.LoadMenu(Constants.GameOverMenuScene, LoadSceneMode.Single);
-    }
 }
