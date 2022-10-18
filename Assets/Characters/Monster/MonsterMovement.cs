@@ -8,7 +8,7 @@ public class MonsterMovement : MonoBehaviour
     public Vector3 initialPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
     void Awake() {
-        transform.position = initialPosition;
+        // transform.position = initialPosition;
     }
 
     void FixedUpdate() {
