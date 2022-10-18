@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 52648016}
   - component: {fileID: 52648015}
   - component: {fileID: 52648014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 584746117}
   - component: {fileID: 584746119}
   - component: {fileID: 584746118}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: InvPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 625601933}
   - component: {fileID: 625601935}
   - component: {fileID: 625601934}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: RedInv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 636224893}
   - component: {fileID: 636224895}
   - component: {fileID: 636224894}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7655,7 +7655,7 @@ GameObject:
   - component: {fileID: 803699044}
   - component: {fileID: 803699046}
   - component: {fileID: 803699045}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7786,7 +7786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1032941324}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: -------SYSTEMS------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7885,7 +7885,7 @@ GameObject:
   - component: {fileID: 1705777723}
   - component: {fileID: 1705777725}
   - component: {fileID: 1705777724}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8196,7 +8196,7 @@ GameObject:
   - component: {fileID: 1873665280}
   - component: {fileID: 1873665279}
   - component: {fileID: 1873665278}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8296,7 +8296,7 @@ GameObject:
   - component: {fileID: 2062413628}
   - component: {fileID: 2062413630}
   - component: {fileID: 2062413629}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BlueInv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8373,7 +8373,7 @@ GameObject:
   - component: {fileID: 2124869426}
   - component: {fileID: 2124869425}
   - component: {fileID: 2124869424}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'Virtual Cam: Player Follower'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
