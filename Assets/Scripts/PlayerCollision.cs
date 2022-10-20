@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour {
     // Start is called before the first frame update
 
-    public ParticleSystem ps;
+    ParticleSystem ps;
     void Start() {
         ps = GetComponent<ParticleSystem>();
         var emissionModule = ps.emission;
