@@ -31,7 +31,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""9a5acedf-4768-455c-a293-bcdde0a8e882"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -128,72 +128,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""4f695ee1-3786-496f-81b2-40d6b1d8d77a"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""024a684c-6f72-41dd-b2bf-e822cac08d9a"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""df7cc44f-f341-43e8-988a-d76971e45494"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""ab6405e4-4930-4ee6-be47-24e61d95c5e6"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""16e2611c-fa7d-4690-bc36-f1db2bccb609"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""879eff6c-309e-493c-a5c1-5cfceb1fbbb2"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""dbde8e52-4921-4bb0-a305-d97d59fb52d3"",
                     ""path"": ""<Keyboard>/k"",
@@ -214,6 +148,67 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""eebce7a9-3479-4475-b08b-8b23a3726d40"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""6d781f91-c8a4-480d-b2c2-ed35baa996b1"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2054fdda-cf81-468a-b255-90ee17601d81"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Overarching"",
+            ""id"": ""5798cc2b-8605-4f09-a921-e71213f951c6"",
+            ""actions"": [
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""88dff0e3-8471-40d1-be53-b955cd614745"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4fb58009-e761-43a1-af45-5886b5be8eec"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +223,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_DoubleJump = m_Player.FindAction("DoubleJump", throwIfNotFound: true);
         m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
+        // Overarching
+        m_Overarching = asset.FindActionMap("Overarching", throwIfNotFound: true);
+        m_Overarching_TogglePause = m_Overarching.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +354,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Overarching
+    private readonly InputActionMap m_Overarching;
+    private IOverarchingActions m_OverarchingActionsCallbackInterface;
+    private readonly InputAction m_Overarching_TogglePause;
+    public struct OverarchingActions
+    {
+        private @PlayerControls m_Wrapper;
+        public OverarchingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TogglePause => m_Wrapper.m_Overarching_TogglePause;
+        public InputActionMap Get() { return m_Wrapper.m_Overarching; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OverarchingActions set) { return set.Get(); }
+        public void SetCallbacks(IOverarchingActions instance)
+        {
+            if (m_Wrapper.m_OverarchingActionsCallbackInterface != null)
+            {
+                @TogglePause.started -= m_Wrapper.m_OverarchingActionsCallbackInterface.OnTogglePause;
+                @TogglePause.performed -= m_Wrapper.m_OverarchingActionsCallbackInterface.OnTogglePause;
+                @TogglePause.canceled -= m_Wrapper.m_OverarchingActionsCallbackInterface.OnTogglePause;
+            }
+            m_Wrapper.m_OverarchingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TogglePause.started += instance.OnTogglePause;
+                @TogglePause.performed += instance.OnTogglePause;
+                @TogglePause.canceled += instance.OnTogglePause;
+            }
+        }
+    }
+    public OverarchingActions @Overarching => new OverarchingActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -364,5 +395,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnDoubleJump(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+    }
+    public interface IOverarchingActions
+    {
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }

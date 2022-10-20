@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonsterMovement : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class MonsterMovement : MonoBehaviour
     public Vector3 initialPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
     void Awake() {
-        transform.position = initialPosition;
+        // transform.position = initialPosition;
     }
 
     void FixedUpdate() {
@@ -17,7 +18,5 @@ public class MonsterMovement : MonoBehaviour
         var step = speed * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
-
-
     }
 }
