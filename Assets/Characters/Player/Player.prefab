@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 3815714499491088928}
   - component: {fileID: 3058653505331954861}
   - component: {fileID: 3815714499491088929}
-  - component: {fileID: 114570433}
   - component: {fileID: 2062174978}
   - component: {fileID: 2062174977}
   - component: {fileID: 2062174979}
@@ -349,18 +348,6 @@ MonoBehaviour:
     - red
     values: 01000000
   dashSpeed: 1000
---- !u!114 &114570433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815714499491088949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df62ebc192a01345a751385acbdd03c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &2062174978
 ParticleSystem:
   m_ObjectHideFlags: 0
