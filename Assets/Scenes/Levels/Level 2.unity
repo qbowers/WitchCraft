@@ -13176,7 +13176,7 @@ Transform:
   - {fileID: 1349675126}
   - {fileID: 1454775217}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803699043
 GameObject:
@@ -13910,22 +13910,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: initialPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: initialPosition.y
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4027558462014874407, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -13970,33 +13954,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4148237250973905473, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7356525844742012201, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
       propertyPath: m_Name
       value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 7356525844742012201, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_TagString
-      value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_SleepingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}

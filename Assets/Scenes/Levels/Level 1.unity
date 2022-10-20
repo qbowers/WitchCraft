@@ -243,10 +243,6 @@ PrefabInstance:
       propertyPath: invUI.values.Array.data[1]
       value: 
       objectReference: {fileID: 1705777724}
-    - target: {fileID: 4637350640432022650, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
 --- !u!4 &53055996 stripped
@@ -8205,7 +8201,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
       propertyPath: speed
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
       propertyPath: m_Enabled
