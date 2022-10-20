@@ -17,7 +17,7 @@ public class ItemActionsController : MonoBehaviour {
         
         for (int i = 0; i < actions.Length; i++) {
             ItemAction action = actions[i];
-            InputAction playerMapAction = playerControls.FindAction(action.GetType().Name, false);
+            InputAction playerMapAction = playerControls.FindAction(action.keybind, false);
             playerMapAction.performed += formatActionFunc(action);
         }
     }

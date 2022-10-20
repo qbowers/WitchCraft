@@ -6,15 +6,6 @@
             "id": "8be4b905-3f8d-4752-84f8-92832c89fd78",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "9a5acedf-4768-455c-a293-bcdde0a8e882",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "f531c459-c733-4912-b1ba-8709c3bbb2ef",
@@ -24,16 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
-                    "type": "Button",
-                    "id": "22371f4a-5b70-431e-8b12-27ad73e67159",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Dash",
+                    "name": "Action1",
                     "type": "Button",
                     "id": "d4d5c240-adc0-4834-aa88-7dc28857ed7c",
                     "expectedControlType": "Button",
@@ -42,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DoubleJump",
+                    "name": "Action2",
                     "type": "Button",
                     "id": "82c7251d-bfb2-462f-8bb2-0f265b8a8d0d",
                     "expectedControlType": "Button",
@@ -51,81 +33,112 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Restart",
-                    "type": "Button",
-                    "id": "ee3ec3d3-7f48-4b8b-929c-ea9e58208be7",
-                    "expectedControlType": "Button",
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "c51a02fb-3957-4f5c-94bd-4830a84965e6",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "9a5acedf-4768-455c-a293-bcdde0a8e882",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "5e6fd519-c4fc-46f3-9250-15bf5434efdf",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6cfbf54-c84d-445f-81db-224f73a40d08",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2f8f806b-c965-4082-8842-0f8c8200a09d",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "a69d3541-7832-4772-b0b1-ce60690faa07",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dash",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "dbde8e52-4921-4bb0-a305-d97d59fb52d3",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DoubleJump",
+                    "action": "Action2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "a10723b2-ebb1-4fcc-81a1-5d484cbd38ac",
-                    "path": "<Keyboard>/r",
+                    "name": "2D Vector",
+                    "id": "75bae14f-4d35-4a5e-88d7-2361fd57f5da",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Restart",
-                    "isComposite": false,
+                    "action": "Aim",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "7460c050-f6e1-4c8e-9037-b17c8dd8d663",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "6682e9ba-a486-4609-9c8c-60c7a7a40b14",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "769311ef-e3f8-4cb4-a13f-405981999e11",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "32d8d4a9-4a80-4ca1-ab92-5a1ac12187f0",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "1D Axis",
@@ -141,7 +154,7 @@
                 {
                     "name": "negative",
                     "id": "6d781f91-c8a4-480d-b2c2-ed35baa996b1",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -152,7 +165,7 @@
                 {
                     "name": "positive",
                     "id": "2054fdda-cf81-468a-b255-90ee17601d81",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

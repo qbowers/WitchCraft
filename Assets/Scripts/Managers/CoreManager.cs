@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class CoreManager : MonoBehaviour {
     public static CoreManager instance = null;
@@ -18,6 +19,9 @@ public class CoreManager : MonoBehaviour {
         } else {
             DontDestroyOnLoad(gameObject);
             CoreManager.instance = this;
+
+            // Required to allow both AIM and MOVE input actions to reference the left/right arrow keys
+            InputSystem.settings.SetInternalFeatureFlag("DISABLE_SHORTCUT_SUPPORT", true);
 
             SpawnManagers();
 

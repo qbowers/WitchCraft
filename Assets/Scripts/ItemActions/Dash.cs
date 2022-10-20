@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dash : ItemAction {
     public float dashSpeed;
+    public override string keybind { get{ return "Action1"; } }
 
     public override void perform(){
         controller.ApplyForce(new Vector2(dashSpeed * controller.transform.localScale.x, 0f));

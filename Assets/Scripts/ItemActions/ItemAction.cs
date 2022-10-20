@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ItemAction : MonoBehaviour {
     public UDictionary<string, int> costs;
+    public abstract string keybind { get; }
 
     protected CharacterMovement controller;
     void Awake() {
