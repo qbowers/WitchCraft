@@ -21,7 +21,10 @@ public class Throw : MonoBehaviour
             if (currentAction.cost(inv)){
                 Transform firePoint = currentAction.firePoint;
                 PotionProjectile proj = Instantiate<PotionProjectile>(currentAction.potionPrefab, firePoint.position, firePoint.rotation);
-                proj.direction = playerMap.Aim.ReadValue<Vector2>();
+                // proj.direction = playerMap.Aim.ReadValue<Vector2>();
+                Vector2 transformPos = new Vector2(transform.position.x, transform.position.y);
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(playerMap.MousePos.ReadValue<Vector2>());
+                proj.direction = (mousePos - transformPos).normalized;
                 proj.move();
             }
         };

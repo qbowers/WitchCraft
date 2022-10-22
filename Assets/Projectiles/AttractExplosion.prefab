@@ -99,9 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f8034d4af84e248b4416b698e4b895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 5
+  explosionRadius: 10
   explosionDuration: 2
-  attractForce: 50
+  attractForce: 2.5
+  monsterMult: 0.2
+  jumpThreshold: 2
 --- !u!198 &-5255661799535132615
 ParticleSystem:
   m_ObjectHideFlags: 0

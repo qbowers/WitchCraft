@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""09895b50-df10-4ce9-b6c5-44a03d338815"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -339,11 +348,22 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f8ff4e3a-56bb-4cb4-aab1-2973c51e7420"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbdbbb31-13ab-48a4-ba7e-a37788c15f81"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -388,6 +408,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
+        m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
         // Overarching
         m_Overarching = asset.FindActionMap("Overarching", throwIfNotFound: true);
         m_Overarching_TogglePause = m_Overarching.FindAction("TogglePause", throwIfNotFound: true);
@@ -456,6 +477,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Throw;
+    private readonly InputAction m_Player_MousePos;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -466,6 +488,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
+        public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -493,6 +516,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Throw.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrow;
+                @MousePos.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                @MousePos.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                @MousePos.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -515,6 +541,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
+                @MousePos.started += instance.OnMousePos;
+                @MousePos.performed += instance.OnMousePos;
+                @MousePos.canceled += instance.OnMousePos;
             }
         }
     }
@@ -560,6 +589,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnMousePos(InputAction.CallbackContext context);
     }
     public interface IOverarchingActions
     {

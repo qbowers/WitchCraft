@@ -11,7 +11,7 @@ public abstract class PotionExplosion : MonoBehaviour
         StartCoroutine(disappearAfterDuration());
     }
 
-    void Update(){
+    void FixedUpdate(){
         var colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
         foreach(Collider2D collider in colliders) {
             // Debug.Log($"{collider.gameObject.name} is nearby");

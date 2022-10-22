@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 1
   explosionDuration: 0.5
-  knockbackForce: 70
+  knockbackForce: 15
+  monsterMult: 0.3
 --- !u!198 &5970628343883600266
 ParticleSystem:
   m_ObjectHideFlags: 0

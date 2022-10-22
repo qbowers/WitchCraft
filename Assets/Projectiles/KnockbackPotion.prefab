@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  speed: 10
+  speed: 20
   arc: 0
   explosion: {fileID: 1113703131349460262, guid: 1f97886c90c329f4588503427d5290ad, type: 3}
   direction: {x: 0, y: 0}
