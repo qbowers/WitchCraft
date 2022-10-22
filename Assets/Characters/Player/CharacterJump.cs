@@ -231,8 +231,6 @@ public class CharacterJump : MonoBehaviour
                 Debug.Log("velocity collected " + body.velocity.y);
             }
 
-            Debug.Log("after " + jumpSpeed);        
-
             //Apply the new jumpSpeed to the velocity. It will be sent to the Rigidbody in FixedUpdate;
             Debug.Log(velocity.y);    
             velocity.y += jumpSpeed;

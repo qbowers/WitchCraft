@@ -10,24 +10,19 @@ public class ItemActionsController : MonoBehaviour {
     private PlayerControls playerControls;
     public Inventory inv;
     public ItemAction[] actions;
+    public ItemAction currentAction;
 
-    void Start() {
+    void Start () {
         playerControls = CoreManager.instance.playerControls;
         playerMap = playerControls.Player;
         
         for (int i = 0; i < actions.Length; i++) {
             ItemAction action = actions[i];
-            InputAction playerMapAction = playerControls.FindAction(action.keybind, false);
-            playerMapAction.performed += formatActionFunc(action);
+            InputAction playerMapAction = playerControls.FindAction(action.actionName, false);
+            playerMapAction.performed += (context) => {
+                currentAction = action;
+            };
         }
-    }
-
-    Action<InputAction.CallbackContext> formatActionFunc(ItemAction action) {
-        return (context) => {
-            Debug.Log(action.GetType().Name);
-            if (action.cost(inv)) {
-                action.perform();
-            }
-        };
+        currentAction = actions[0];
     }
 }
