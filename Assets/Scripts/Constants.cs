@@ -7,5 +7,5 @@ public class Constants {
     public static string[] Menus = new string[]{StartMenuScene, PauseMenuScene, GameOverMenuScene, WinMenuScene};
 
     public const string LevelSystemsScene = "LevelSystems";
-    public const string LevelOne = "Level 1";
+    public const string LevelOne = "Level 3";
 }

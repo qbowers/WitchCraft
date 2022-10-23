@@ -327,9 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costs:
     keys:
-    - red
     - blue
-    values: 0100000001000000
+    values: 01000000
   jumpHeight: 1000
 --- !u!114 &3815714499491088929
 MonoBehaviour:
