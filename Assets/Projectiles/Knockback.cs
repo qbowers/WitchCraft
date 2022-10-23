@@ -9,8 +9,8 @@ public class Knockback : PotionExplosion {
     public override void affect(GameObject obj){
         float force = knockbackForce * (obj.CompareTag("Monster") ? monsterMult : 1);
         
+        // clamp to 8 directions
         Vector3 dir = DirectionClamp8((obj.transform.position - transform.position).normalized);
-        // TODO: clamp to 8 directions
 
         obj.GetComponent<Rigidbody2D>().AddForce(force * dir, ForceMode2D.Impulse);
     }
