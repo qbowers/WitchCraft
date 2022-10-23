@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1113703131349460262}
   - component: {fileID: 5970628343883600266}
   - component: {fileID: 2985898996205643489}
+  - component: {fileID: -8266082840039715245}
   m_Layer: 0
   m_Name: KnockbackExplosion
   m_TagString: Untagged
@@ -100,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 1
-  explosionDuration: 0.5
-  knockbackForce: 15
+  explosionDuration: 2
+  knockbackForce: 50
   monsterMult: 0.3
 --- !u!198 &5970628343883600266
 ParticleSystem:
@@ -4940,3 +4941,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!58 &-8266082840039715245
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718437040053734951}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5

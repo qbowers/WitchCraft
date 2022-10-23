@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815714499491088953, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3815714499491088956, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
       propertyPath: invUI.values.Array.data[0]
       value: 

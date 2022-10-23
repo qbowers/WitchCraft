@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionProjectile : MonoBehaviour
-{
+public class PotionProjectile : MonoBehaviour {
     public float duration;
     public float speed;
     private float speedMult;

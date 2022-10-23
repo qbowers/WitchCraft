@@ -10,14 +10,21 @@ public abstract class PotionExplosion : MonoBehaviour {
         StartCoroutine(disappearAfterDuration());
     }
 
-    void FixedUpdate(){
-        var colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-        foreach(Collider2D collider in colliders) {
-            // Debug.Log($"{collider.gameObject.name} is nearby");
-            if (collider.CompareTag("Player") || collider.CompareTag("Monster") ){
-                Debug.Log("affecting " + collider.gameObject.name);
-                affect(collider.gameObject);
-            }
+    // void FixedUpdate(){
+    //     var colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+    //     foreach(Collider2D collider in colliders) {
+    //         // Debug.Log($"{collider.gameObject.name} is nearby");
+    //         if (collider.CompareTag("Player") || collider.CompareTag("Monster") ){
+    //             Debug.Log("affecting " + collider.gameObject.name);
+    //             affect(collider.gameObject);
+    //         }
+    //     }
+    // }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player") || other.CompareTag("Monster") ){
+            Debug.Log("affecting " + other.gameObject.name);
+            affect(other.gameObject);
         }
     }
 
