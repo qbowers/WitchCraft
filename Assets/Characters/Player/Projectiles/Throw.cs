@@ -28,7 +28,7 @@ public class Throw : MonoBehaviour
     }
 
     Vector2 GetAimDirection() {
-        if (CoreManager.instance.bindingGroupFilter != Constants.keyboardAimBinding) {
+        if (CoreManager.instance.bindingGroupFilter == Constants.mouseAimBinding) {
             Vector2 transformPos = new Vector2(transform.position.x, transform.position.y);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(playerMap.MousePos.ReadValue<Vector2>());
             return (mousePos - transformPos).normalized;
