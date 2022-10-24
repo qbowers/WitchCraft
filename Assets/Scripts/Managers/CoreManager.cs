@@ -31,10 +31,7 @@ public class CoreManager : MonoBehaviour {
             // Required to allow both AIM and MOVE input actions to reference the left/right arrow keys
             InputSystem.settings.SetInternalFeatureFlag("DISABLE_SHORTCUT_SUPPORT", true);
 
-
-
             SpawnManagers();
-
         }
     }
 
