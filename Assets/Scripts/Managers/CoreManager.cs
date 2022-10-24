@@ -8,6 +8,9 @@ using UnityEngine.InputSystem;
 public class CoreManager : MonoBehaviour {
     public static CoreManager instance = null;
 
+    
+    public string openLevel = Constants.LevelOne; 
+
     public LevelManager levelManager;
 
     public PlayerControls playerControls;
@@ -66,7 +69,6 @@ public class CoreManager : MonoBehaviour {
     } 
 
 
-    public string openLevel; 
     public void LoadLevel(string levelName) {
         // if level systems don't exist, load them
         SceneManager.LoadScene(Constants.LevelSystemsScene, LoadSceneMode.Single);
