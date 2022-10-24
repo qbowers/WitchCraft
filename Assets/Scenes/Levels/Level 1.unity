@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815714499491088953, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3815714499491088956, guid: 0f082582b5e14294bbeee3d1f079e1d4, type: 3}
       propertyPath: invUI.values.Array.data[0]
       value: 
@@ -8137,22 +8141,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: initialPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5325676945189848802, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: initialPosition.y
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4027558462014874407, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8197,33 +8185,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4148237250973905473, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7356525844742012201, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
       propertyPath: m_Name
       value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 7356525844742012201, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_TagString
-      value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_SleepingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650650234920344847, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2833fee3128d1fe4f897e20c70c09a66, type: 3}
