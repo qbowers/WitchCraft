@@ -270,17 +270,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""eebce7a9-3479-4475-b08b-8b23a3726d40"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
                     ""id"": ""9f7fa8ea-e60c-4109-9f55-0f8cfaecfdfd"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -336,18 +325,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4d725927-8867-4087-b7b8-68ce1c276ec0"",
-                    ""path"": ""<Keyboard>/v"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throw"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f8ff4e3a-56bb-4cb4-aab1-2973c51e7420"",
+                    ""id"": ""592b0124-7aec-4c6c-827f-2fc40b140b7f"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",

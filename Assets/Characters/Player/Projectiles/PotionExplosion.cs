@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PotionExplosion : MonoBehaviour {
-    public float explosionRadius;
+    public bool continuous;
     public float explosionDuration;
 
     void Start(){
         StartCoroutine(disappearAfterDuration());
     }
 
-    // void FixedUpdate(){
-    //     var colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-    //     foreach(Collider2D collider in colliders) {
-    //         // Debug.Log($"{collider.gameObject.name} is nearby");
-    //         if (collider.CompareTag("Player") || collider.CompareTag("Monster") ){
-    //             Debug.Log("affecting " + collider.gameObject.name);
-    //             affect(collider.gameObject);
-    //         }
-    //     }
-    // }
+    void FixedUpdate(){
+        if (continuous) {
+            List<Collider2D> colliders = new List<Collider2D>();
+            ContactFilter2D filter = new ContactFilter2D().NoFilter();
+            GetComponent<Collider2D>().OverlapCollider(filter, colliders);
+            foreach(Collider2D collider in colliders) {
+                // Debug.Log($"{collider.gameObject.name} is nearby");
+                if (collider.CompareTag("Player") || collider.CompareTag("Monster") ){
+                    Debug.Log("affecting " + collider.gameObject.name);
+                    affect(collider.gameObject);
+                }
+            }
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") || other.CompareTag("Monster") ){

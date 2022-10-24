@@ -32,4 +32,12 @@ public class MenuManager : MonoBehaviour {
     public void LoadLevel() {
         CoreManager.instance.LoadLevel(Constants.LevelOne);
     }
+
+    public void SwitchToMouseBindingGroup() {
+        CoreManager.instance.SwitchBindingGroup(Constants.mouseAimBinding);
+    }
+
+    public void SwitchToKeyboardBindingGroup() {
+        CoreManager.instance.SwitchBindingGroup(Constants.keyboardAimBinding);
+    }
 }

@@ -251,11 +251,6 @@ public class CharacterJump : MonoBehaviour
         }
     }
 
-    public void bounceUp(float bounceAmount)
-    {
-        //Used by the springy pad
-        body.AddForce(Vector2.up * bounceAmount, ForceMode2D.Impulse);
-    }
 
 
 /*

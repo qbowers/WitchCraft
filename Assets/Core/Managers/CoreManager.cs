@@ -12,14 +12,12 @@ public class CoreManager : MonoBehaviour {
     public string openLevel = Constants.LevelOne; 
 
     public LevelManager levelManager;
-
     public PlayerControls playerControls;
     public PlayerControls.OverarchingActions controlMap;
     public PlayerControls.PlayerActions playerMap;
 
-
     // Change this flag to switch between FPS and platformer controls
-    public bool debug_controlModeMouse = false;
+    public string bindingGroupFilter = Constants.mouseAimBinding;
 
     public void Awake() {
         if (CoreManager.instance != null) {
@@ -41,12 +39,9 @@ public class CoreManager : MonoBehaviour {
         controlMap = playerControls.Overarching;
         playerMap = playerControls.Player;
         
-        string filter = this.debug_controlModeMouse ? "FPS_player" : "Platformer_player";
-        var bindingGroup = playerControls.controlSchemes.First(x => x.name == filter).bindingGroup;
-        
-        // Set as binding mask on actions. Any binding that doesn't match the mask will be ignored.
-        playerControls.bindingMask = InputBinding.MaskByGroup(bindingGroup);
-
+        var bindingGroup = playerControls.controlSchemes.First(x => x.name == bindingGroupFilter).bindingGroup;
+            // Set as binding mask on actions. Any binding that doesn't match the mask will be ignored.
+            playerControls.bindingMask = InputBinding.MaskByGroup(bindingGroup);
 
         // Find or create instances of all other required managers, DontDestroyOnLoad as required
         // e.g. audiomanager, levelmanager, etc.
@@ -121,6 +116,16 @@ public class CoreManager : MonoBehaviour {
         #else
         Application.Quit();
         #endif
+    }
+
+    public void SwitchBindingGroup(string filter) {
+        if (filter != bindingGroupFilter) {
+            bindingGroupFilter = filter;
+            var bindingGroup = playerControls.controlSchemes.First(x => x.name == filter).bindingGroup;
+            // Set as binding mask on actions. Any binding that doesn't match the mask will be ignored.
+            playerControls.bindingMask = InputBinding.MaskByGroup(bindingGroup);
+            // GameObject.FindWithTag("Player").GetComponent<ItemActionsController>().bindActions();
+        }
     }
 
 }

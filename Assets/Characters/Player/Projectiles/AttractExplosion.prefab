@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5201490924880707120}
   - component: {fileID: -5255661799535132615}
   - component: {fileID: -2850696682825521256}
+  - component: {fileID: 7830591569284009382}
   m_Layer: 0
   m_Name: AttractExplosion
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f8034d4af84e248b4416b698e4b895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 10
+  continuous: 1
   explosionDuration: 2
   attractForce: 2.5
   monsterMult: 0.2
@@ -4883,3 +4884,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!58 &7830591569284009382
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399058908487475502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
