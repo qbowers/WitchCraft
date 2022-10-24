@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemAction : MonoBehaviour {
+public class ItemAction : MonoBehaviour {
     public UDictionary<string, int> costs;
-    public abstract string keybind { get; }
+    public PotionProjectile potionPrefab;
+    public string actionName;
+    [HideInInspector]
+    public Transform firePoint;
 
-    protected CharacterMovement controller;
-    void Awake() {
-        controller = GetComponent<CharacterMovement>();
+    void Awake(){
+        firePoint = this.gameObject.transform.GetChild(0);
     }
 
     public bool cost(Inventory inv) {
@@ -23,6 +25,4 @@ public abstract class ItemAction : MonoBehaviour {
         inv.actionCosts(costs);
         return true;
     }
-
-    public abstract void perform();
 }

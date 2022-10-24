@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -13,6 +14,10 @@ public class CoreManager : MonoBehaviour {
     public PlayerControls.OverarchingActions controlMap;
     public PlayerControls.PlayerActions playerMap;
 
+
+    // Change this flag to switch between FPS and platformer controls
+    public bool debug_controlModeMouse = false;
+
     public void Awake() {
         if (CoreManager.instance != null) {
             Destroy(gameObject);
@@ -22,6 +27,8 @@ public class CoreManager : MonoBehaviour {
 
             // Required to allow both AIM and MOVE input actions to reference the left/right arrow keys
             InputSystem.settings.SetInternalFeatureFlag("DISABLE_SHORTCUT_SUPPORT", true);
+
+
 
             SpawnManagers();
 
@@ -33,6 +40,14 @@ public class CoreManager : MonoBehaviour {
         playerControls = new PlayerControls();
         controlMap = playerControls.Overarching;
         playerMap = playerControls.Player;
+        
+        string filter = this.debug_controlModeMouse ? "FPS_player" : "Platformer_player";
+        var bindingGroup = playerControls.controlSchemes.First(x => x.name == filter).bindingGroup;
+        
+        // Set as binding mask on actions. Any binding that doesn't match the mask will be ignored.
+        playerControls.bindingMask = InputBinding.MaskByGroup(bindingGroup);
+
+
         // Find or create instances of all other required managers, DontDestroyOnLoad as required
         // e.g. audiomanager, levelmanager, etc.
 
