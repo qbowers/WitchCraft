@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 4415107998062571035}
   - component: {fileID: 2062174977}
   - component: {fileID: 1487729323}
-  - component: {fileID: 6868357759286010527}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5243,16 +5242,3 @@ MonoBehaviour:
   potionPrefab: {fileID: 5707571383114328962, guid: 6002c481e1cf44140852c18ea78ddcdd, type: 3}
   actionName: Action2
   firePoint: {fileID: 0}
---- !u!114 &6868357759286010527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815714499491088949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be40096a64b04be4ab7f6daa656e9ce9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseCursor: {fileID: 2800000, guid: 1a3968aec198eec43b25a15bd652927d, type: 3}
