@@ -13,6 +13,10 @@ public class ItemActionsController : MonoBehaviour {
     public ItemAction currentAction;
 
     void Start () {
+        bindActions();
+    }
+
+    public void bindActions() {
         playerControls = CoreManager.instance.playerControls;
         playerMap = playerControls.Player;
         
@@ -20,23 +24,25 @@ public class ItemActionsController : MonoBehaviour {
             ItemAction action = actions[i];
             InputAction playerMapAction = playerControls.FindAction(action.actionName, false);
             playerMapAction.performed += (context) => {
-                
+                // if (CoreManager.instance.bindingGroupFilter == Constants.mouseAimBinding) {
+                //     currentAction = action;
+                // }
+                // else if (CoreManager.instance.bindingGroupFilter == Constants.keyboardAimBinding) {
                 if (action.cost(inv)){
                     Transform firePoint = action.firePoint;
                     PotionProjectile proj = Instantiate<PotionProjectile>(action.potionPrefab, firePoint.position, firePoint.rotation);
                     proj.direction = GetAimDirection();
                     proj.move();
                 }
-
+                // }
             };
         }
         currentAction = actions[0];
     }
 
 
-
     Vector2 GetAimDirection() {
-        if (CoreManager.instance.debug_controlModeMouse) {
+        if (CoreManager.instance.bindingGroupFilter == Constants.mouseAimBinding) {
             Vector2 transformPos = new Vector2(transform.position.x, transform.position.y);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(playerMap.MousePos.ReadValue<Vector2>());
             return (mousePos - transformPos).normalized;

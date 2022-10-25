@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cc924e3917e7f4cbafcfc3d0896ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1
+  continuous: 0
   explosionDuration: 2
   knockbackForce: 50
   monsterMult: 0.3
