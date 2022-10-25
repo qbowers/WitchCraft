@@ -51,15 +51,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Throw",
-                    "type": "Button",
-                    "id": "70a2494e-c434-4861-832d-8e2aad77e6e2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MousePos",
                     "type": "Value",
                     "id": "09895b50-df10-4ce9-b6c5-44a03d338815",
@@ -67,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "07bbd469-8531-44c0-b2b9-5c24d2f0976b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -106,7 +106,7 @@
                 {
                     "name": "",
                     "id": "9f5ec1c8-f8fb-4621-98ac-d4bf31d84c09",
-                    "path": "<Keyboard>/1",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "FPS_player",
@@ -128,7 +128,7 @@
                 {
                     "name": "",
                     "id": "020b394d-6817-4ace-b597-a2d6135458df",
-                    "path": "<Keyboard>/2",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "FPS_player",
@@ -303,23 +303,23 @@
                 },
                 {
                     "name": "",
-                    "id": "592b0124-7aec-4c6c-827f-2fc40b140b7f",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "FPS_player",
-                    "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dbdbbb31-13ab-48a4-ba7e-a37788c15f81",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "FPS_player",
                     "action": "MousePos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27af9e88-ab52-471b-939f-810b5a304d9f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

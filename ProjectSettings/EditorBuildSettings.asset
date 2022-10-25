@@ -41,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level_Bounce.unity
     guid: 4197954b3b6d3ee40958043102441c67
+  - enabled: 1
+    path: Assets/Levels/Level_Attract.unity
+    guid: 9c3df63825a28134ca7ffd4855131f8f
+  - enabled: 1
+    path: Assets/Levels/Level_Monster.unity
+    guid: 98cba2520e5832b4aaa761ee15a31699
   m_configObjects: {}

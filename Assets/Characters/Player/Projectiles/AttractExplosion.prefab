@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continuous: 1
+  repeatInterval: 0.05
   explosionDuration: 2
-  attractForce: 2.5
+  attractForce: 40
   monsterMult: 0.2
   jumpThreshold: 2
 --- !u!198 &-5255661799535132615
@@ -4899,4 +4900,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10

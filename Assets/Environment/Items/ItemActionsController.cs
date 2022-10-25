@@ -24,17 +24,17 @@ public class ItemActionsController : MonoBehaviour {
             ItemAction action = actions[i];
             InputAction playerMapAction = playerControls.FindAction(action.actionName, false);
             playerMapAction.performed += (context) => {
-                if (CoreManager.instance.bindingGroupFilter == Constants.mouseAimBinding) {
-                    currentAction = action;
+                // if (CoreManager.instance.bindingGroupFilter == Constants.mouseAimBinding) {
+                //     currentAction = action;
+                // }
+                // else if (CoreManager.instance.bindingGroupFilter == Constants.keyboardAimBinding) {
+                if (action.cost(inv)){
+                    Transform firePoint = action.firePoint;
+                    PotionProjectile proj = Instantiate<PotionProjectile>(action.potionPrefab, firePoint.position, firePoint.rotation);
+                    proj.direction = GetAimDirection();
+                    proj.move();
                 }
-                else if (CoreManager.instance.bindingGroupFilter == Constants.keyboardAimBinding) {
-                    if (action.cost(inv)){
-                        Transform firePoint = action.firePoint;
-                        PotionProjectile proj = Instantiate<PotionProjectile>(action.potionPrefab, firePoint.position, firePoint.rotation);
-                        proj.direction = GetAimDirection();
-                        proj.move();
-                    }
-                }
+                // }
             };
         }
         currentAction = actions[0];
